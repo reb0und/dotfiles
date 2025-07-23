@@ -158,6 +158,9 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+-- Disable mouse
+vim.opt.mouse = ""
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -1132,7 +1135,7 @@ lspconfig.pyright.setup({
 })
 
 vim.keymap.set("n", "<C-t>", "<Cmd>Neotree toggle<CR>", { desc = "Toggle NeoTree file explorer" })
-vim.keymap.set("n", "<C-y>", "<Cmd>Telescope find_files<CR>", { desc = "Find files using Telescope" })
+vim.keymap.set("n", "<C-y>", "<Cmd>Telescope find_files<CR>", { desc = "Find files fTelescope" })
 vim.keymap.set("n", "<C-g>", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep using Telescope" })
 
 vim.api.nvim_set_hl(0, "Normal",   { bg = "none" })
