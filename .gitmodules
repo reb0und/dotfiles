@@ -1,3 +1,6 @@
 [submodule "tmux/tpm"]
 	path = tmux/tpm
 	url = git@github.com:tmux-plugins/tpm.git
+[submodule "dotfiles/tmux/plugins/tpm"]
+	path = dotfiles/tmux/plugins/tpm
+	url = git@github.com:reb0und/dotfiles.git
