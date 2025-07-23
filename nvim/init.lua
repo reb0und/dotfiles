@@ -1138,5 +1138,7 @@ vim.keymap.set("n", "<C-t>", "<Cmd>Neotree toggle<CR>", { desc = "Toggle NeoTree
 vim.keymap.set("n", "<C-y>", "<Cmd>Telescope find_files<CR>", { desc = "Find files fTelescope" })
 vim.keymap.set("n", "<C-g>", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep using Telescope" })
 
-vim.api.nvim_set_hl(0, "Normal",   { bg = "none" })
-vim.api.nvim_set_hl(0, "NonText",  { bg = "none" })
+vim.api.nvim_set_hl(0, "Normal",       { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat",  { bg = "none" })
+vim.api.nvim_set_hl(0, "FloatBorder",  { bg = "none" })
+vim.api.nvim_set_hl(0, "NonText",      { bg = "none" })
