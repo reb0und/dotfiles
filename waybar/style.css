@@ -1,6 +1,6 @@
 * {
   font-family: FiraCode Nerd Font;
-  font-size: 12px;
+  font-size: 16px;
   min-height: 0;
   padding-right: 2px;
   padding-left: 2px;
@@ -8,7 +8,7 @@
 }
 
 #waybar {
-  background: 101010;
+  background: transparent;
   color: #c6d0f5;
   margin: 2px 2px;
 }
@@ -41,6 +41,7 @@ button {
 }
 
 #tray,
+#backlight,
 #clock,
 #battery,
 #pulseaudio,
@@ -48,7 +49,11 @@ button {
 #cpu,
 #memory,
 #custom-lock,
-#custom-power,
+#custom-power {
+  background-color: #101010;
+  padding: 0.5rem 0.5rem;
+  margin: 5px 0;
+}
 
 #clock {
   color: #8caaee;
@@ -67,6 +72,11 @@ button {
   color: #e78284;
 }
 
+#backlight {
+  color: #e5c890;
+}
+
+#backlight,
 #battery {
   border-radius: 0;
 }
@@ -74,10 +84,6 @@ button {
 #pulseaudio {
   color: #ea999c;
   border-radius: 5px 0px 0px 5px;
-}
-
-#custom-lock {
-  color: #babbf1;
 }
 
 #custom-power {
