@@ -1,6 +1,6 @@
 * {
-  font-family: FiraCode Nerd Font Reg;
-  font-size: 10px;
+  font-family: FiraCode Nerd Font;
+  font-size: 12px;
   min-height: 0;
   padding-right: 2px;
   padding-left: 2px;
@@ -8,7 +8,7 @@
 }
 
 #waybar {
-  background: transparent;
+  background: 101010;
   color: #c6d0f5;
   margin: 2px 2px;
 }

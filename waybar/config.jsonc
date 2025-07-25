@@ -7,7 +7,6 @@
 
   "modules-right": [
     "pulseaudio",
-    "custom/uptime",
     "battery",
     "network",
     "cpu",
@@ -33,7 +32,7 @@
   "clock": {
     "timezone": "America/Fortaleza",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%d/%m/%Y - %H:%M:%S}",
+    "format": "{:%d - %H:%M:%S}",
     "interval": 1
   },
 
@@ -46,8 +45,7 @@
 
   "cpu": {
     "interval": 1,
-    "format": "  {icon0}{icon1}{icon2}{icon3} {usage:>2}%",
-    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
+    "format": "  {usage:>2}%",
   },
 
   "memory": {
