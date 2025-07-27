@@ -17,7 +17,8 @@ servers:
         - "##chat"
         - "##math"
         - "#raspberrypi"
-        - "MacOSX"
+        - "#MacOSX"
+        - "#osdev"
 
     - addr: irc.oftc.net
       port: 6697
