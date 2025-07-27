@@ -1,5 +1,29 @@
 # Servers to automatically connect.
 servers:
+    - addr: irc.libera.chat
+      port: 6697
+      tls: true
+      realname: hi
+      nicks: [reb0und]
+      join:
+        - "#linux"
+        - "##rust"
+        - "#security"
+        - "#c"
+        - "#lobsters"
+        - "#networking"
+        - "##programming"
+        - "#hardware"
+        - "#go-nuts"
+        - "#neovim"
+        - "nixos"
+        - "##chat"
+        - "##math"
+        - "#raspberrypi"
+        - "#haskell"
+        - "#zig"
+        - "MacOSX"
+
     - addr: irc.oftc.net
       port: 6697
       tls: true
