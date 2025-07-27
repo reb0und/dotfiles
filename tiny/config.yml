@@ -4,23 +4,19 @@ servers:
       port: 6697
       tls: true
       realname: hi
-      nicks: [reb0und]
+      nicks: [rebound]
       join:
         - "#linux"
         - "##rust"
         - "#security"
         - "#c"
-        - "#lobsters"
         - "##programming"
-        - "#hardware"
         - "#go-nuts"
         - "#neovim"
         - "nixos"
         - "##chat"
         - "##math"
         - "#raspberrypi"
-        - "#haskell"
-        - "#zig"
         - "MacOSX"
 
     - addr: irc.oftc.net
