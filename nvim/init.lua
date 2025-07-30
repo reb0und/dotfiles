@@ -1138,5 +1138,3 @@ lspconfig.pyright.setup({
 })
 
 vim.keymap.set("n", "<C-t>", "<Cmd>Neotree toggle<CR>", { desc = "Toggle NeoTree file explorer" })
-vim.keymap.set("n", "<C-y>", "<Cmd>Telescope find_files<CR>", { desc = "Find files fTelescope" })
-vim.keymap.set("n", "<C-g>", "<Cmd>Telescope live_grep<CR>", { desc = "Live grep using Telescope" })
