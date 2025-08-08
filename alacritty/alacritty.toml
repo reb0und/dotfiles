@@ -6,6 +6,4 @@ family = "FiraCode Nerd Font Mono"
 style = "Regular"
 
 [window]
-blur = true
-blur_radius = 20
 opacity = 0.65
