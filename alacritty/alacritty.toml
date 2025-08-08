@@ -1,0 +1,11 @@
+[font]
+size = 12.5
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+style = "Regular"
+
+[window]
+blur = true
+blur_radius = 20
+opacity = 0.65
