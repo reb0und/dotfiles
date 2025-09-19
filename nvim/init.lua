@@ -661,24 +661,22 @@ require("lazy").setup({
 			--    :Mason
 			--
 			--  You can press `g?` for help in this menu.
-			require("lspconfig")
 			require("mason").setup()
 
 			require("mason-lspconfig").setup({
-				ensure_installed = vim.tbl_keys(servers),
 				automatic_enable = false,
-				handlers = {
-					function(server_name)
-						local opts = vim.tbl_deep_extend(
-							"force",
-							{},
-							servers[server_name] or {},
-							{ capabilities = capabilities }
-						)
-						require("lspconfig")[server_name].setup(opts)
-					end,
-				},
 			})
+
+			for name, cfg in pairs(servers) do
+				vim.lsp.config[name] = vim.tbl_deep_extend("force", { capabilities = capabilities }, cfg or {})
+			end
+
+			local exepath = vim.fn.exepath
+			vim.lsp.config.lua_ls   = vim.tbl_deep_extend("force", { cmd = { exepath("lua-language-server") } }, vim.lsp.config.lua_ls or {})
+			vim.lsp.config.pyright  = vim.tbl_deep_extend("force", { cmd = { exepath("pyright-langserver"), "--stdio" } }, vim.lsp.config.pyright or {})
+			vim.lsp.config.gleam    = vim.tbl_deep_extend("force", { cmd = { exepath("gleam"), "lsp" } }, vim.lsp.config.gleam or {})
+			vim.lsp.config.clangd   = vim.tbl_deep_extend("force", { cmd = { exepath("clangd"), "--offset-encoding=utf-8" } }, vim.lsp.config.clangd or {})
+			vim.lsp.config.gopls    = vim.tbl_deep_extend("force", { cmd = { exepath("gopls") } }, vim.lsp.config.gopls or {})
 
 			require("mason-tool-installer").setup({
 				ensure_installed = {
@@ -1093,48 +1091,43 @@ require("lazy").setup({
 	},
 })
 
--- Require lspconfig
-local lspconfig = require("lspconfig")
+local cmp_caps = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- Configure gopls
-lspconfig.gopls.setup({
-	cmd = { "gopls" },
-	filetypes = { "go", "gomod" },
-	root_dir = lspconfig.util.root_pattern("go.work", "go.mod", ".git"),
-	capabilities = {
-		offsetEncoding = { "utf-8" },
-	},
-	settings = {
-		gopls = {
-			analyses = {
-				unusedparams = true,
-			},
-			staticcheck = true,
-		},
-	},
-})
+vim.lsp.config.gopls = vim.tbl_deep_extend("force", {
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod" },
+  root_dir = vim.fs.root(0, { "go.work", "go.mod", ".git" }),
+  capabilities = cmp_caps,
+  settings = {
+    gopls = {
+      analyses = { unusedparams = true },
+      staticcheck = true,
+    },
+  },
+}, vim.lsp.config.gopls or {})
 
-lspconfig.gleam.setup({})
+vim.lsp.config.gleam = vim.tbl_deep_extend("force", {}, vim.lsp.config.gleam or {})
 
-lspconfig.clangd.setup({
-	cmd = { "clangd", "--offset-encoding=utf-8" },
-	init_options = {
-		usePlaceholders = true,
-		completeUnimported = true,
-		clangdFileStatus = true,
-	},
+vim.lsp.config.clangd = vim.tbl_deep_extend("force", {
+  cmd = { "clangd", "--offset-encoding=utf-8" },
+  init_options = {
+    usePlaceholders = true,
+    completeUnimported = true,
+    clangdFileStatus = true,
+  },
+  capabilities = cmp_caps,
+}, vim.lsp.config.clangd or {})
 
-	capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
-})
+vim.lsp.config.pyright = vim.tbl_deep_extend("force", {
+  settings = {
+    python = { analysis = { typeCheckingMode = "basic" } },
+  },
+}, vim.lsp.config.pyright or {})
 
-lspconfig.pyright.setup({
-	settings = {
-		python = {
-			analysis = {
-				typeCheckingMode = "basic", -- Set to "off" or "basic" for less strict checking
-			},
-		},
-	},
-})
+pcall(vim.lsp.enable, "lua_ls")
+pcall(vim.lsp.enable, "gopls")
+pcall(vim.lsp.enable, "gleam")
+pcall(vim.lsp.enable, "clangd")
+pcall(vim.lsp.enable, "pyright")
 
 vim.keymap.set("n", "<C-t>", "<Cmd>Neotree toggle<CR>", { desc = "Toggle NeoTree file explorer" })
