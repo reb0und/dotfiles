@@ -864,25 +864,6 @@ require("lazy").setup({
 		end,
 	},
 
-	{
-		"ThePrimeagen/harpoon",
-		config = function()
-			local mark = require("harpoon.mark")
-			local ui = require("harpoon.ui")
-
-			vim.keymap.set("n", "<Leader>a", mark.add_file, { desc = "Harpoon add file" })
-			vim.keymap.set("n", "<Leader>r", mark.rm_file, { desc = "Harpoon remove file" })
-			vim.keymap.set("n", "<Leader>h", ui.toggle_quick_menu, { desc = "Toggle Harpoon menu" })
-			vim.keymap.set("n", "<Leader>n", ui.nav_next, { desc = "Harpoon next file" })
-			vim.keymap.set("n", "<Leader>p", ui.nav_prev, { desc = "Harpoon prev file" })
-			vim.keymap.set("n", "<Leader>c", mark.clear_all, { desc = "Clear all Harpoon files" })
-			for i = 1, 9 do
-				vim.keymap.set("n", ("<Leader>%d"):format(i), function()
-					ui.nav_file(i)
-				end, { desc = ("Go to Harpoon mark"):format(i) })
-			end
-		end,
-	},
 	{ -- You can easily change to a different colorscheme.
 		-- Change the name of the colorscheme plugin below, and then
 		-- change the command in the config to whatever the name of that colorscheme is.
