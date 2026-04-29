@@ -1,4 +1,4 @@
 [zterm]
-exit_confirmation=false
+exit_confirmation=disabled
 transparency=enabled
 editor=nvim
