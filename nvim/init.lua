@@ -1003,6 +1003,9 @@ require("lazy").setup({
 	},
 	{
 		"xiyaowong/transparent.nvim",
+		opts = function()
+			vim.cmd("TransparentEnable")
+		end,
 	},
 	{
 		"nvimtools/none-ls.nvim",
