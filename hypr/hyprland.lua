@@ -20,12 +20,12 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-	output = "",
+	output = "HDMI-A-2",
 	mode = "preferred",
-	position = "auto",
-	scale = "auto",
+	position = "0x0",
+	scale = 1.5,
+	mirror = "eDP-1",
 })
-
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -208,8 +208,7 @@ hl.config({
 })
 
 ----------------
-----  MISC  ----
-----------------
+----  MISC  ---- -------------
 
 hl.config({
 	misc = {
@@ -282,6 +281,11 @@ hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
+
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.move({ direction = "down" }))
 
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
